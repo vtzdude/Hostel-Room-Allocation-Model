@@ -1,0 +1,86 @@
+
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    
+    
+    <title>Hostel Allotment</title>
+    <!-- <link rel="stylesheet" href="/Templates/ind.css"> -->
+  </head>
+<body>
+  
+  <div class="container"></div>
+<form action="/" method="POST">
+    <div class="form1">
+  <div class="mb-3">
+    
+    <label for="exampleInputName" class="form-label">Name</label><br>
+    <input type="text" class="form-control" name="Name" id="exampleInputName">
+  
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputRoll" class="form-label">Roll Number</label><br>
+    <input type="number" class="form-control" name="Roll_Number" id="exampleInputRoll">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label><br>
+    <input type="email" class="form-control" name="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputDepartment" class="form-label">Department</label><br>
+    <input type="text" class="form-control" name="Department" id="exampleInputDepartment">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputRoom" class="form-label">Room Number</label><br>
+    <input type="number" class="form-control" name="Room_Number" id="exampleInputRoom">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+<div class="container my-3">
+  <h1>Hostel Rooms</h1>
+  <style>
+    .tb { border-collapse: collapse; }
+    .tb th, .tb td { padding: 5px; border: solid 1px #777; }
+    .tb th { background-color: lightblue; }
+  </style>
+  <table class="tb">
+    <thead>
+      <tr>
+        <th scope="col">Serial No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Roll Numebr</th>
+        <th scope="col">Email</th>
+        <th scope="col">Department</th>
+        <th scope="col">Room Number</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in allTodo %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{todo.Name}}</td>
+        <td>{{todo.Roll_Number}}</td>
+        <td>{{todo.Email}}</td>
+        <td>{{todo.Department}}</td>
+        <td>{{todo.Room_Number}}</td>
+        <td>
+          <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-dark " >Update</button><br>
+          <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-dark " >Delete</button>
+        
+        </td>
+
+      </tr>
+      {% endfor %}
+     
+      
+     
+      
+    </tbody>
+    
+  </table>
+ 
+</div>
+</body>
