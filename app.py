@@ -37,20 +37,6 @@ def hello_world():
     allTodo=Todo.query.order_by(Todo.Room_Number).all()
     return render_template('index.html',allTodo=allTodo)
 
-@app.route("/",methods=['GET','POST'])
-def hello():
-    if request.method=='POST':
-        Name=request.form['Name']
-        Email=request.form['Email']
-        Roll_Number=request.form['Roll_Number']
-        Department=request.form['Department']
-        Room_Number=request.form['Room_Number']
-        todo=Todo(Name=Name,Roll_Number=Roll_Number,Email=Email,Department=Department,Room_Number=Room_Number)
-        db.session.add(todo)
-        db.session.commit()
-    allTodo=Todo.query.order_by(Todo.Room_Number).all()
-    return render_template('index.html',allTodo=allTodo)
-
 #@app.route('/show')
 #def products():
 #    allTodo = Todo.query.all()
